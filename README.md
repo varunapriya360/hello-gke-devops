@@ -29,7 +29,7 @@ Public URL via Ingress LoadBalancer
 
 Live Application
 The deployed application is publicly accessible at:
-Hello App
+[Hello App](http://34.102.210.94/)
 
 Repository Structure
 hello-gke-devops/
@@ -110,5 +110,3 @@ Design Choices
 
 Author
 Varuna Priya – DevOps Engineer
-
-
