@@ -45,14 +45,13 @@ jobs:
       run: |
         docker build -t us-central1-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest ./app
 
-    # ----------------- TRIVY SCAN -----------------
     - name: Install Trivy
       run: |
         curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
 
     - name: Scan Docker image for vulnerabilities
       run: |
-        ./trivy image \
+        trivy image \
           --exit-code 1 \
           --severity HIGH,CRITICAL \
           us-central1-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:latest
@@ -77,4 +76,4 @@ jobs:
     - name: Deploy to GKE
       run: |
         kubectl apply -k k8s/
-        
+
